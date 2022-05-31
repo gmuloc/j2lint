@@ -1,4 +1,4 @@
-"""JinjaStatementDelimiterRule.py - Rule class to check if jinja delimeters
+"""jinja_statement_delimiter_rule.py - Rule class to check if jinja delimeters
                                     are wrong.
 """
 
