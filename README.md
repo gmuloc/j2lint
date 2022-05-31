@@ -20,7 +20,7 @@ Syntax and code style issues detected by Jinja2 Linter are:
    - To close a control, end tag must have same indentation level
    - Indentation are 4 spaces and NOT tabulation
 5. S7 Jinja statements should be on separate lines
-6. S8 Jinja statements should not have {%- or {%+ or -%} as delimeters
+6. S8 Jinja statements should not have {%- or {%+ or -%} as delimiters
 7. VAR-1 All variables shall use lower case
 8. VAR-2 If variable is multi-words, underscore _ shall be used as a separator
 
