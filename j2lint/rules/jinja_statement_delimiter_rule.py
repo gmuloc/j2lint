@@ -1,13 +1,13 @@
-"""JinjaStatementDelimeterRule.py - Rule class to check if jinja delimeters
+"""JinjaStatementDelimiterRule.py - Rule class to check if jinja delimeters
                                     are wrong.
 """
-import re
-import jinja2
+
 from j2lint.linter.rule import Rule
 from j2lint.utils import get_jinja_statements
+from j2lint.logger import logger
 
 
-class JinjaStatementDelimeterRule(Rule):
+class JinjaStatementDelimiterRule(Rule):
     """Rule class to check if jinja delimeters are wrong.
     """
     id = 'S6'
@@ -15,11 +15,11 @@ class JinjaStatementDelimeterRule(Rule):
     description = "Jinja statements should not have {%- or {%+ or -%} as delimeters"
     severity = 'LOW'
 
-    def check(self, file, line):
+    @classmethod
+    def check(cls, line):
         """Checks if the given line matches the wrong delimeters
 
         Args:
-            file (string): file path
             line (string): a single line from the file
 
         Returns:
@@ -29,4 +29,8 @@ class JinjaStatementDelimeterRule(Rule):
         for statement in statements:
             if statement[3] in ["{%-", "{%+"] or statement[4] == "-%}":
                 return True
+
+        logger.debug("Check line rule does not exist for %s",
+                     __class__.__name__)
+
         return False
