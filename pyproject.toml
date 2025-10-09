@@ -9,7 +9,7 @@ name = "j2lint"
 version = "v1.2.0"
 description = "Command-line utility that validates jinja2 syntax according to Arista's AVD style guide."
 readme = "README.md"
-authors = [{ name = "Arista Ansible Team", email = "ansible@arista.com" }]
+authors = [{ name = "Arista AVD Team", email = "avd-dev@arista.com" }]
 license = "MIT"
 license-files = ["LICENSE"]
 classifiers = [
@@ -33,7 +33,7 @@ dependencies = [
 ]
 requires-python = ">=3.9"
 
-[project.optional-dependencies]
+[dependency-group]
 dev = [
   "pre-commit>=3.3.3",
   "bumpver==2025.1131",
@@ -103,14 +103,15 @@ python =
 
 [testenv]
 description = run the test driver with {basepython}
-extras = test
+dependency_groups =
+  test
 
 commands =
   pytest  {tty:--color=yes}
 
 [testenv:lint]
 description = check the code style
-extras =
+dependency_groups =
   lint
   test
 commands =
@@ -121,7 +122,7 @@ commands =
 
 [testenv:type]
 description = check the code type
-extras = 
+dependency_groups =
   type
   test
 commands =
